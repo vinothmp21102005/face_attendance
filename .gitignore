@@ -7,3 +7,6 @@ __pycache__/
 
 # Generated data files
 *.pickle
+
+# In .gitignore
+encodings.pickle
