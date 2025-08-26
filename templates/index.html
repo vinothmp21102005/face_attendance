@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="jumbotron bg-light p-5 rounded-3 mb-4">
+            <h1 class="display-4">Face Recognition Attendance System</h1>
+            <p class="lead">A comprehensive web-based solution for automated attendance tracking using facial recognition technology.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-primary bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <i class="fas fa-user-plus fa-2x"></i>
+                </div>
+                <h3 class="card-title">Collect Faces</h3>
+                <p class="card-text">Capture and store facial images for students. This step is required before the system can recognize individuals.</p>
+                <a href="{{ url_for('collect_page') }}" class="btn btn-primary">Start Collection</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-success bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <i class="fas fa-cogs fa-2x"></i>
+                </div>
+                <h3 class="card-title">Encode Faces</h3>
+                <p class="card-text">Process collected images to create facial encodings. This prepares the system for accurate face recognition.</p>
+                <a href="{{ url_for('encode_page') }}" class="btn btn-success">Encode Faces</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-warning bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <i class="fas fa-clipboard-check fa-2x"></i>
+                </div>
+                <h3 class="card-title">Mark Attendance</h3>
+                <p class="card-text">Start the live attendance system that automatically recognizes faces and logs attendance records.</p>
+                <a href="{{ url_for('attendance_page') }}" class="btn btn-warning">Mark Attendance</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">How It Works</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2">1</div>
+                        <h5>Collect</h5>
+                        <p class="text-muted">Capture multiple photos of each student using the webcam</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2">2</div>
+                        <h5>Encode</h5>
+                        <p class="text-muted">Process images to create unique facial recognition patterns</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="step-number bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2">3</div>
+                        <h5>Track</h5>
+                        <p class="text-muted">Automatically mark attendance when faces are recognized</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
