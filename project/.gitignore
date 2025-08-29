@@ -11,3 +11,5 @@ __pycache__/
 # In .gitignore
 encodings.pickle
 .env
+
+known_faces/
