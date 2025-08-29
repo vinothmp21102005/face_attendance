@@ -1,0 +1,13 @@
+# Virtual Environment
+envi/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated data files
+*.pickle
+
+# In .gitignore
+encodings.pickle
+.env

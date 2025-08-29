@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Encode Faces - Face Recognition Attendance{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-cogs me-2"></i>Encode Faces</h2>
+        <p class="text-muted">Process collected face images to create encodings for the recognition system.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Encoding Process</h4>
+            </div>
+            <div class="card-body">
+                <div id="encoding-status">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Click "Start Encoding" to process all collected face images.
+                    </div>
+                </div>
+                
+                <div id="encoding-progress" style="display: none;">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="spinner-border text-primary me-3" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">Processing faces...</h6>
+                            <small class="text-muted">This may take a few moments</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="encoding-results" style="display: none;">
+                    <h6>Processing Results</h6>
+                    <div id="results-list" class="list-group">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+                
+                <button id="encode-btn" class="btn btn-success">
+                    <i class="fas fa-play me-2"></i>Start Encoding
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">What is Encoding?</h6>
+            </div>
+            <div class="card-body">
+                <p class="small">Face encoding converts facial images into mathematical representations that the system can use for recognition.</p>
+                
+                <h6 class="mt-3">Process Steps:</h6>
+                <ol class="small">
+                    <li>Load collected images</li>
+                    <li>Detect faces in each image</li>
+                    <li>Extract facial features</li>
+                    <li>Create unique encodings</li>
+                    <li>Save encodings to file</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">Requirements</h6>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning small">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Make sure you have collected face images before running the encoding process.
+                </div>
+                
+                <div class="small">
+                    <strong>Recommended:</strong>
+                    <ul class="mt-2">
+                        <li>5-10 images per person</li>
+                        <li>Clear, well-lit photos</li>
+                        <li>Different angles/expressions</li>
+                        <li>Face clearly visible</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/encode.js') }}"></script>
+{% endblock %}

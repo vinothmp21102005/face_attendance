@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Collect Faces - Face Recognition Attendance{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-user-plus me-2"></i>Collect Student Faces</h2>
+        <p class="text-muted">Enter a student's name and capture multiple photos for training the recognition system.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Camera Feed</h4>
+            </div>
+            <div class="card-body text-center">
+                <div id="camera-container" class="mb-3">
+                    <img id="video-feed" src="" alt="Camera feed will appear here" class="img-fluid rounded" style="display: none; max-height: 400px;">
+                    <div id="camera-placeholder" class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 300px;">
+                        <div class="text-center">
+                            <i class="fas fa-camera fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Camera feed will appear here</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="btn-group" role="group">
+                    <button id="capture-btn" class="btn btn-success" disabled>
+                        <i class="fas fa-camera me-2"></i>Capture Image
+                    </button>
+                    <button id="stop-btn" class="btn btn-danger" disabled>
+                        <i class="fas fa-stop me-2"></i>Stop Collection
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Collection Settings</h4>
+            </div>
+            <div class="card-body">
+                <form id="collection-form">
+                    <div class="mb-3">
+                        <label for="student-name" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="student-name" placeholder="Enter student name" required>
+                        <div class="form-text">Name will be used to identify the student</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-play me-2"></i>Start Collection
+                    </button>
+                </form>
+                
+                <hr>
+                
+                <div id="collection-status">
+                    <h6>Collection Status</h6>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Enter a student name and click "Start Collection" to begin.
+                    </div>
+                </div>
+                
+                <div id="capture-count" style="display: none;">
+                    <div class="text-center">
+                        <h3 class="text-primary mb-0" id="count-display">0</h3>
+                        <small class="text-muted">Images Captured</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">Instructions</h6>
+            </div>
+            <div class="card-body">
+                <ol class="small">
+                    <li>Enter the student's name</li>
+                    <li>Click "Start Collection"</li>
+                    <li>Look directly at the camera</li>
+                    <li>Click "Capture Image" multiple times</li>
+                    <li>Try different angles and expressions</li>
+                    <li>Capture at least 5-10 images</li>
+                    <li>Click "Stop Collection" when done</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/collect.js') }}"></script>
+{% endblock %}
